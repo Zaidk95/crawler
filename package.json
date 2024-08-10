@@ -1,0 +1,19 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "![cropped](https://user-images.githubusercontent.com/12884117/148686503-d2862da6-d0c9-49c2-9ab4-01d021ac3717.gif)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "input": "^1.0.1",
+    "parse": "^5.1.0",
+    "telegram": "^2.21.2"
+  }
+}

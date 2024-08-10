@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسائل التيليغرام</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            direction: rtl;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .highlighted {
+            background-color: yellow;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 20px;
+        }
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 10px;
+            max-width: 100%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            word-wrap: break-word; /* Ensures long words break to the next line */
+            overflow-wrap: break-word; /* Ensures long words break to the next line */
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>رسائل التيليغرام</h1>
+    <div id="messages" class="cards-container"></div>
+    <script>
+        async function fetchMessages() {
+            const response = await fetch('http://localhost:3000/messages');
+            const messages = await response.json();
+            const messagesContainer = document.getElementById('messages');
+            messagesContainer.innerHTML = '';
+
+            messages.forEach(msg => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <p><span style="color:red">التاريخ:</span> ${msg.date}</p>
+                    <p><span style="color:red">الوقت:</span> ${msg.time}</p>
+                    <p><span style="color:red">الرسالة:</span> ${msg.message}</p>
+                `;
+                console.log(msg.message)
+                messagesContainer.appendChild(card);
+            });
+        }
+
+        fetchMessages();
+    </script>
+</body>
+</html>

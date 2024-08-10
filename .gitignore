@@ -1,0 +1,13 @@
+*.session
+*.cer
+*.csv
+to_be_processed
+to_be_processed2
+temp_to_be_processed2
+groups2
+edges2
+done
+done2
+processing
+processing2
+/node_modules
